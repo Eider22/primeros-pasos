@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 import main.java.com.softlond.project.ArrayListDemo;
 import main.java.com.softlond.project.ArraysDemo;
 import main.java.com.softlond.project.Calculadora;
@@ -18,8 +21,15 @@ import main.java.com.softlond.project.poo.herencia.MedioTerrestre;
 import main.java.com.softlond.project.poo.herencia.MedioTransporte;
 import main.java.com.softlond.project.poo.herencia.Motocicleta;
 import main.java.com.softlond.project.poo.herencia.Piloto;
-import main.java.com.softlond.project.poo.interfaces.implementaciones.animales.Animal;
+// import main.java.com.softlond.project.poo.interfaces.implementaciones.animales.Animal;
 import main.java.com.softlond.project.poo.interfaces.implementaciones.transportes.Automovil;
+import main.java.com.softlond.project.poo.polimorfismo.Animal;
+import main.java.com.softlond.project.poo.polimorfismo.Avion;
+import main.java.com.softlond.project.poo.polimorfismo.Gallina;
+import main.java.com.softlond.project.poo.polimorfismo.Gato;
+import main.java.com.softlond.project.poo.polimorfismo.Perro;
+import main.java.com.softlond.project.poo.polimorfismo.contratos.IAereo;
+import main.java.com.softlond.project.poo.polimorfismo.contratos.IAnimal;
 
 public class App {
     // variables
@@ -149,8 +159,8 @@ public class App {
         // System.out.println(estudiante1.toString());
 
         // ----------Clases abstractas
-        Circulo circulo1 = new Circulo(10);
-        Rectangulo rect1 = new Rectangulo(10, 20);
+        // Circulo circulo1 = new Circulo(10);
+        // Rectangulo rect1 = new Rectangulo(10, 20);
 
         // System.out.println(circulo1.calcularArea());
         // System.out.println(rect1.calcularArea());
@@ -159,14 +169,78 @@ public class App {
 
         // System.out.println( rect1.getDimensiones());
 
-        Automovil auto1 = new Automovil();
-        auto1.desplazarse(50);
+        // Automovil auto1 = new Automovil();
+        // auto1.desplazarse(50);
 
-        Animal animal1 = new Animal();
-        animal1.desplazarse(10);
-        animal1.emitirSonido();;
+        // Animal animal1 = new Animal();
+        // animal1.desplazarse(10);
+        // animal1.emitirSonido();;
 
-        System.out.println(auto1.direccionarDesplazamiento("Derecha"));
+        // System.out.println(auto1.direccionarDesplazamiento("Derecha"));
+
+        //---Polimorfismo
+        //---polimorfismo de subtipos → herencia
+        ArrayList<Animal> animales = new ArrayList<>();
+        
+        Animal perro1 = new Perro("Pinki", "French poodle");
+        Animal gato1 = new Gato("Michi", "Persa");
+
+        animales.add(perro1);
+        animales.add(gato1);
+
+        for (Animal animal : animales) {
+            animal.sonido();
+        }
+
+        //Polimorfismo con interfaces
+        List<IAnimal> animales2 = new ArrayList<>();
+        // ArrayList<Perro> perros = new ArrayList<>();
+        // ArrayList<Gato> gatos = new ArrayList<>();
+
+        IAnimal perro2 = new Perro("Pinki2", "French poodle 2");
+        IAnimal gato2 = new Gato("Michi2", "Persa 2");
+        IAnimal gallina1 = new Gallina("Josefina","Criolla");
+
+        // Perro perro2 = new Perro("Pinki2", "French poodle 2");
+        // Gato gato3 = new Gato("Michi2", "Persa 2");
+
+        animales2.add(perro2);
+        animales2.add(gato2);
+        animales2.add(gallina1);
+        // perros.add(perro2);
+        // gatos.add(gato3);
+
+        for (IAnimal animal : animales2) {
+            animal.correr();            
+        }
+
+
+        List<IAereo> cosasQuePuedenVolar = new ArrayList<>();
+
+        IAereo gallina2 = new Gallina("Tomasa", "Ponedora");
+        IAereo avion1 = new Avion();
+
+        cosasQuePuedenVolar.add(gallina2);
+        cosasQuePuedenVolar.add(avion1);
+
+        // gallina2.volar();
+        // avion1.volar();
+
+        for (IAereo aereo : cosasQuePuedenVolar) {
+            aereo.volar();
+        }
+
+        // for (Perro perro : perros) {
+        //     perro.correr();
+        // }
+        // for (Gato gato : gatos) {
+        //     gato.correr();
+        // }
+
+        
+
+
+
 
     }
 }
