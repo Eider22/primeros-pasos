@@ -1,3 +1,4 @@
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +18,9 @@ import main.java.com.softlond.project.poo.encapsulamiento.Estudiante;
 import main.java.com.softlond.project.poo.encapsulamiento.ModuloInscripcion;
 import main.java.com.softlond.project.poo.encapsulamiento.Persona;
 import main.java.com.softlond.project.poo.encapsulamiento2.Foraneo;
+import main.java.com.softlond.project.poo.excepciones.ejemploUno.EjemploUno;
+import main.java.com.softlond.project.poo.excepciones.excepxionespersonalizadas.Auto;
+import main.java.com.softlond.project.poo.excepciones.excepxionespersonalizadas.AutoNoDisponibleException;
 import main.java.com.softlond.project.poo.herencia.MedioTerrestre;
 import main.java.com.softlond.project.poo.herencia.MedioTransporte;
 import main.java.com.softlond.project.poo.herencia.Motocicleta;
@@ -180,55 +184,55 @@ public class App {
 
         //---Polimorfismo
         //---polimorfismo de subtipos → herencia
-        ArrayList<Animal> animales = new ArrayList<>();
+        // ArrayList<Animal> animales = new ArrayList<>();
         
-        Animal perro1 = new Perro("Pinki", "French poodle");
-        Animal gato1 = new Gato("Michi", "Persa");
+        // Animal perro1 = new Perro("Pinki", "French poodle");
+        // Animal gato1 = new Gato("Michi", "Persa");
 
-        animales.add(perro1);
-        animales.add(gato1);
+        // animales.add(perro1);
+        // animales.add(gato1);
 
-        for (Animal animal : animales) {
-            animal.sonido();
-        }
+        // for (Animal animal : animales) {
+        //     animal.sonido();
+        // }
 
         //Polimorfismo con interfaces
-        List<IAnimal> animales2 = new ArrayList<>();
+        // List<IAnimal> animales2 = new ArrayList<>();
         // ArrayList<Perro> perros = new ArrayList<>();
         // ArrayList<Gato> gatos = new ArrayList<>();
 
-        IAnimal perro2 = new Perro("Pinki2", "French poodle 2");
-        IAnimal gato2 = new Gato("Michi2", "Persa 2");
-        IAnimal gallina1 = new Gallina("Josefina","Criolla");
+        // IAnimal perro2 = new Perro("Pinki2", "French poodle 2");
+        // IAnimal gato2 = new Gato("Michi2", "Persa 2");
+        // IAnimal gallina1 = new Gallina("Josefina","Criolla");
 
         // Perro perro2 = new Perro("Pinki2", "French poodle 2");
         // Gato gato3 = new Gato("Michi2", "Persa 2");
 
-        animales2.add(perro2);
-        animales2.add(gato2);
-        animales2.add(gallina1);
+        // animales2.add(perro2);
+        // animales2.add(gato2);
+        // animales2.add(gallina1);
         // perros.add(perro2);
         // gatos.add(gato3);
 
-        for (IAnimal animal : animales2) {
-            animal.correr();            
-        }
+        // for (IAnimal animal : animales2) {
+        //     animal.correr();            
+        // }
 
 
-        List<IAereo> cosasQuePuedenVolar = new ArrayList<>();
+        // List<IAereo> cosasQuePuedenVolar = new ArrayList<>();
 
-        IAereo gallina2 = new Gallina("Tomasa", "Ponedora");
-        IAereo avion1 = new Avion();
+        // IAereo gallina2 = new Gallina("Tomasa", "Ponedora");
+        // IAereo avion1 = new Avion();
 
-        cosasQuePuedenVolar.add(gallina2);
-        cosasQuePuedenVolar.add(avion1);
+        // cosasQuePuedenVolar.add(gallina2);
+        // cosasQuePuedenVolar.add(avion1);
 
         // gallina2.volar();
         // avion1.volar();
 
-        for (IAereo aereo : cosasQuePuedenVolar) {
-            aereo.volar();
-        }
+        // for (IAereo aereo : cosasQuePuedenVolar) {
+        //     aereo.volar();
+        // }
 
         // for (Perro perro : perros) {
         //     perro.correr();
@@ -237,10 +241,38 @@ public class App {
         //     gato.correr();
         // }
 
+        // ------Excepciones---------
+        //---Verificadas(checked exception)
+        //---No verificadas(unchecked exception - runtime Exception)
+        EjemploUno ejExc1 = new EjemploUno();
+
+        try {
+            ejExc1.convertirADate("2023-08");            
+        } catch (ParseException e) {
+            System.out.println("Se generó un error al momento de parsear la fecha " + e);
+        }
+
+
+        System.out.println("Antes");
+        // try {
+            ejExc1.mostrarLongitudCadena("");            
+        // } catch (NullPointerException e) {
+        //     System.out.println("Error : " + e);
+        // }
+        // System.out.println("Después");
+
+
+
+        // Auto auto1 = new Auto(false);
+        // System.out.println("Antes");
+        // try {
+        //     auto1.alquilar();            
+        // } catch (AutoNoDisponibleException e) {
+        //     System.out.println("Error: " +  e.getMessage());
+        // }
         
-
-
-
+        
+        // System.out.println("Después");
 
     }
 }
