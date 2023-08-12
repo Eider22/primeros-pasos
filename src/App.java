@@ -1,5 +1,7 @@
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 import main.java.com.softlond.project.ArrayListDemo;
@@ -21,6 +23,9 @@ import main.java.com.softlond.project.poo.encapsulamiento2.Foraneo;
 import main.java.com.softlond.project.poo.excepciones.ejemploUno.EjemploUno;
 import main.java.com.softlond.project.poo.excepciones.excepxionespersonalizadas.Auto;
 import main.java.com.softlond.project.poo.excepciones.excepxionespersonalizadas.AutoNoDisponibleException;
+// import main.java.com.softlond.project.poo.genericos.ejemplo1.Animal;
+import main.java.com.softlond.project.poo.genericos.ejemplo1.Contenedor;
+import main.java.com.softlond.project.poo.genericos.ejemplo2.MiArray;
 import main.java.com.softlond.project.poo.herencia.MedioTerrestre;
 import main.java.com.softlond.project.poo.herencia.MedioTransporte;
 import main.java.com.softlond.project.poo.herencia.Motocicleta;
@@ -28,6 +33,7 @@ import main.java.com.softlond.project.poo.herencia.Piloto;
 // import main.java.com.softlond.project.poo.interfaces.implementaciones.animales.Animal;
 import main.java.com.softlond.project.poo.interfaces.implementaciones.transportes.Automovil;
 import main.java.com.softlond.project.poo.polimorfismo.Animal;
+// import main.java.com.softlond.project.poo.polimorfismo.Animal;
 import main.java.com.softlond.project.poo.polimorfismo.Avion;
 import main.java.com.softlond.project.poo.polimorfismo.Gallina;
 import main.java.com.softlond.project.poo.polimorfismo.Gato;
@@ -182,10 +188,10 @@ public class App {
 
         // System.out.println(auto1.direccionarDesplazamiento("Derecha"));
 
-        //---Polimorfismo
-        //---polimorfismo de subtipos → herencia
+        // ---Polimorfismo
+        // ---polimorfismo de subtipos → herencia
         // ArrayList<Animal> animales = new ArrayList<>();
-        
+
         // Animal perro1 = new Perro("Pinki", "French poodle");
         // Animal gato1 = new Gato("Michi", "Persa");
 
@@ -193,10 +199,10 @@ public class App {
         // animales.add(gato1);
 
         // for (Animal animal : animales) {
-        //     animal.sonido();
+        // animal.sonido();
         // }
 
-        //Polimorfismo con interfaces
+        // Polimorfismo con interfaces
         // List<IAnimal> animales2 = new ArrayList<>();
         // ArrayList<Perro> perros = new ArrayList<>();
         // ArrayList<Gato> gatos = new ArrayList<>();
@@ -215,9 +221,8 @@ public class App {
         // gatos.add(gato3);
 
         // for (IAnimal animal : animales2) {
-        //     animal.correr();            
+        // animal.correr();
         // }
-
 
         // List<IAereo> cosasQuePuedenVolar = new ArrayList<>();
 
@@ -231,48 +236,144 @@ public class App {
         // avion1.volar();
 
         // for (IAereo aereo : cosasQuePuedenVolar) {
-        //     aereo.volar();
+        // aereo.volar();
         // }
 
         // for (Perro perro : perros) {
-        //     perro.correr();
+        // perro.correr();
         // }
         // for (Gato gato : gatos) {
-        //     gato.correr();
+        // gato.correr();
         // }
 
         // ------Excepciones---------
-        //---Verificadas(checked exception)
-        //---No verificadas(unchecked exception - runtime Exception)
-        EjemploUno ejExc1 = new EjemploUno();
+        // ---Verificadas(checked exception)
+        // ---No verificadas(unchecked exception - runtime Exception)
+        // EjemploUno ejExc1 = new EjemploUno();
 
-        try {
-            ejExc1.convertirADate("2023-08");            
-        } catch (ParseException e) {
-            System.out.println("Se generó un error al momento de parsear la fecha " + e);
-        }
-
-
-        System.out.println("Antes");
         // try {
-            ejExc1.mostrarLongitudCadena("");            
+        // ejExc1.convertirADate("2023-08");
+        // } catch (ParseException e) {
+        // System.out.println("Se generó un error al momento de parsear la fecha " + e);
+        // }
+
+        // System.out.println("Antes");
+        // try {
+        // ejExc1.mostrarLongitudCadena("");
         // } catch (NullPointerException e) {
-        //     System.out.println("Error : " + e);
+        // System.out.println("Error : " + e);
         // }
         // System.out.println("Después");
-
-
 
         // Auto auto1 = new Auto(false);
         // System.out.println("Antes");
         // try {
-        //     auto1.alquilar();            
+        // auto1.alquilar();
         // } catch (AutoNoDisponibleException e) {
-        //     System.out.println("Error: " +  e.getMessage());
+        // System.out.println("Error: " + e.getMessage());
         // }
-        
-        
+
         // System.out.println("Después");
+
+        // -------Genéricos
+        // Estudiante estudiante1 = new Estudiante("Alberto", "00000000", 25);
+        // Animal animal1 = new Animal("Pinki", "Frech");
+        // Animal animal2 = new Animal("Juano", "Jack Rusell");
+        // Animal animal3 = new Animal("Michi", "Persa");
+        // Animal animal4 = new Animal("Pepito", "Bengala");
+
+        // Contenedor<Estudiante, Animal> contenedor1 = new Contenedor<>(estudiante1,
+        // animal1);
+        // System.out.println("Contenido: " + contenedor1.getContenidoT());
+        // System.out.println("Contenido: " + contenedor1.getContenidoU());
+
+        // Contenedor<Animal> contenedor2 = new Contenedor<Animal>(animal1);
+        // System.out.println("Contenido: " + contenedor2.getContenidoT());
+
+        // MiArray<Animal> miArray = new MiArray<>();
+
+        // miArray.agregar(animal1);
+        // miArray.agregar(animal2);
+        // miArray.agregar(animal3);
+        // miArray.agregar(animal4);
+
+        // for (Animal animal : miArray) {
+        // System.out.println(animal.getNombre());
+        // }
+
+        // List<Animal> animales = new ArrayList<>();
+        // List<Animal> animales2 = new LinkedList<>();
+
+        // animales.add(animal1);
+        // animales.add(animal2);
+        // animales.add(animal3);
+        // animales.add(animal4);
+
+        // animales2.add(animal1);
+
+        // for (Animal animal : animales) {
+        // System.out.println(animal);
+        // }
+
+        // List<Integer> eventoNumerico = new ArrayList<>();
+        // List<Integer> numeros = new ArrayList<>(Arrays.asList(1,2,3,4));
+        // numeros.stream().filter(x->x% 2 == 0).forEach(eventoNumerico::add);
+
+        // System.out.println("Numeros pares " + eventoNumerico);
+
+        // --- Valor vs referencia
+        // int a = 2;
+        // int b = a;
+        // int c = 2;
+
+        // b = 5;
+
+        // System.out.println(a);
+        // System.out.println(b);
+        // Persona persona2 = new Persona("Miguel", "12454515", 26);
+        // System.out.println(a == c);
+
+        // Persona persona1 = new Persona("Miguel", "12454515", 26);
+        // Persona persona3 = persona1;
+
+        // System.out.println(persona1.getEdad());
+        // System.out.println(persona3.getEdad());
+
+        // persona3.setEdad(28);
+
+        // System.out.println(persona1.getEdad());
+        // System.out.println(persona3.getEdad());
+
+        // System.out.println(persona1);
+        // System.out.println(persona2);
+        // System.out.println(persona3);
+        // System.out.println(persona1.equals(persona2));
+        // System.out.println(persona1.equals(persona3));
+
+        // IAereo avion = new Avion();
+        // Gallina gallina = new Gallina("Pepa", "Ponedora");
+
+        // List<IAereo> aereos = new ArrayList<>();
+        // aereos.add(avion);
+        // aereos.add(gallina);
+
+        // for (IAereo aereo : aereos) {
+        // if(aereo instanceof Avion){
+        // aereo.volar();
+        // }
+        // }
+
+        // Animal gallina = new Gallina("Pepa", "Ponedora");
+        // Animal gato = new Gato("Michi", "Persa");
+
+        // List<Animal> animales = new ArrayList<>();
+
+        // animales.add(gallina);
+        // animales.add(gato);
+
+        // for (Animal animal : animales) {
+        //     animal.correr();
+        // }
 
     }
 }
